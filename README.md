@@ -9,7 +9,7 @@ The following workshops are available this year!
 - [Web API's]()
 - [Intro to Backend: Servers]()
 - [Intro to Backend: Databases]()
-- [Intro to Version Control: Git]() 
+- [Intro to Version Control: Git](https://github.com/uclaacm/hoth9-workshops/tree/main/into-to-git) 
 - [Intro to Game Development: Unity]()
 - [Intro to Machine Learning]()
 - [Intro to UI/UX]()
