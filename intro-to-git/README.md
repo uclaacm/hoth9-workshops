@@ -385,54 +385,40 @@ ready to add what you have to the final product.
 
 ### How do we branch?
 
-To lists all of the branches that you have visited in your local repository, type:
-```git
-$ git branch
-```
-Git is also nice enough to highlight the branch that you are on in this list.
+- `$ git branch`
 
-If you would liek to list all branches in the remote repository, ie all the branches that others have made and pushed
-to the remote, type:
-```git
-$ git branch -r
-```
+This command lists all of the branches that you have visited in your local repository. Git is also nice enough to 
+highlight the branch that you are on in this list.
 
-If you want to create a new brach, you can use:
-```git
-$ git branch [branch name]
-```
-This command creates a new branch in your local repo that has the branch name that you list.
+- `$ git branch -r`
+
+This command lists all branches in the remote repository, ie all the branches that others have made and pushed
+to the remote.
+
+- `$ git branch [branch name]`
+This version of the command allows you to create a new branch in your local repo that has the branch name that you list.
 
 These above three commands are useful when you want to create new branches or see what branches already exist, but
 they don't allow you to switch onto a branch and work in that isolated development evironment. If you start committing,
 you'll still be committing to that main line of commits in the main branch.
 
-To get onto another branch, use:
-```git
-$ git checkout [branch name]
-```
+- `$ git checkout [branch name]`
 This command switches you onto the branch you name. If you type this command and then commit, you will be committing to
 the alternate line of commits on the branch. Nothing you change will affect main (the main branch).
 
-A helpful shortcut command is:
-```git
-$ git checkout -b [branch name]
-```
-This command squashes two commands into one: `$ git branch [branch name]` and `$ git checkout [branch name]`. In 
-essence, it creates a new branch with the name that you passed into the command and then switches you onto that branch.
+- `$ git checkout -b [branch name]`
+This command is a helpful shortcut in that it squashes two commands into one: `$ git branch [branch name]` and 
+`$ git checkout [branch name]`. In essence, it creates a new branch with the name that you passed into the command and 
+then switches you onto that branch.
 
 For newer versions of git, there's the `$ git switch` command.
 
-To switch onto another branch, use:
-```git
-$ git switch [branch name]
-```
+- `$ git switch [branch name]`
+This will switch you onto the branch name you list.
 
-If you want to create a new branch and switch to that branch, type:
-```git
-$ git switch -c [branch name]
-```
-And yes, this command is very similar to `$ git checkout`. It's up to you regarding which command you'd like to use.
+- `$ git switch -c [branch name]`
+This command new branch and switches to that branch. And yes, this command is very similar to `$ git checkout`. It's up 
+to you regarding which command you'd like to use.
 
 ### Pushing and pulling branches
 
@@ -449,7 +435,8 @@ and then taking our main branch and pushing the commits we had there to the remo
 
 Note: This command will push the branch you are currently on to the remote repo. Additionally, the branch name you
 list in this command will be the name of the branch that will be created in the GitHub repo. I'd use the same branch
-name in the remote repo as you have in your local repo just to avoid confusion.
+name in the remote repo as you have in your local repo just to avoid confusion. I also recommend that as soon as you
+create a branch, you push it to remote just to be safe.
 
 Pulling branches from remote is simple if you already have a local version of the branch. You simply do a `$ git pull`
 and everything from the remote branch is downloaded to your local local branch.
@@ -469,10 +456,193 @@ to come back together and bring all your progress together. Alone, you only had 
 you guys have completed the game. The act of sharing your progress for everyone to see and interact with is called
 **merging**.
 
+### Merging in git
+
+In git, merging is when you unite two (or more, though I highly recommend only merging two) branches.
+
+Say you were creating a version of Instagram, and you finished creating the post feature on your branch. Merging is
+when you take the version of the project in the main branch and add the functionality of the finished feature you 
+developed in your branch to it.
+
+Conceptually in the repo, merging looks like the image below. You work on your branch until you decide that you have
+finished development. Then you take main and your branch and you mash all the code together into one commit on the main
+branch. Now your newest commit on main looks like the last commit on main plus your finished feature.
+
+![Merge Commit Diagram](./images/MergeCommit.png)
+
 ### Merge conflicts
+
+Theoretically, merging works just fine... except for when it doesn't.
+
+Let's imagine that in our video game analogy, two people ended up doing the same quest. Now you can't just automatically
+smash everyone's progress together because two people's actions clasha nd mgiht have ended up with differnet results.
+One person's progress overwrites another person's contribution and that is very much not great. This is in essence a
+**merge conflict**. 
+
+In git, merge conflicts occur when trying to merge two branches that have different code in the same corresponding region.
+They rarely happen, but now you're going to be prepared to handle them. 
+
+Merge conflicts look like this:
+
+![Merge Conflict](./images/MergeConflict.png)
+
+The format of the merge conflict is this:
+- a line of less-than symbols followed by the word 'HEAD' or the words 'Current Change'.
+    - 'HEAD' refers to the most recent commit on the branch you are on. 
+- the code from the branch you are on
+- a line of equal signs
+- the code from the branch you are trying to merge in
+- a line of greater-than symbols followed by the name of the branch you are trying to merge in or the words 'Incoming Change'
+
+Breaking down this merge conflict, we see that the line "When a door closes, a window of opportunity opens... but we're
+all in a yellow submarine" from the branch we are on is in the same place the line "Not all cabbages are created equal" is
+in main. Thus, when asked to merge, git doesn't know which version to choose and asks you to choose either one version of
+the code or integrate both versions.
+
+To solve merge conflicts, delete the lines that do not pertain to the code you want to keep. You would delete the lines with
+the the less-than signs, the equal signs, the greater-than signs, and the line of code that you do not want to keep.
+
+Say you wanted to keep the line "When a door closes, a window of opportunity opens... but we're all in a yellow submarine"
+from the image. To do so, you would have to delete lines 1, 3, 4, and 5.
+
 ### How do we merge?
 
+There is an intense process to merging—I will not lie. However, follow these steps and I swear everything will be fine.
+
+First you need to know the command for merging.
+```git
+$ git merge [branch name]
+```
+The branch name listed is the branch that you want to merge into your current branch. 
+
+***Please, for the sake of all that is good and non-stressful in this world, DO NOT call this command while on the main branch***
+You never wnat to touch main unless you know what you've got is impeccable. Always be on your feature branch and merge main onto
+your branch. This is because when merging, you may face merge conflicts or unexpected bugs that you have to address, and we only
+want to touch main when we know what we've got is safe. By merging main onto your feature branch, you are able to address these
+problems on the feature branch, and everything is much safer this way.
+
+There is also a command for if you change your mind about merging.
+```git
+$ git merge --abort
+```
+Call this command if you have already called `$ git merge [branch name]` and then decide you want to abort the merge.
+
+Now, let's cover the **Steps to Merging**
+1. on terminal, be on your feature branch
+    1. check using `$ git branch`. The branch you are on will be highlighted
+    2. if you are not on your branch, use `$ git checkout [branch name]` to get on your branch
+2. on terminal, push to remote branch: `$ git push -u origin [branch name]`
+3. Make a pull request on GitHub
+    1. you'll find a notification with button to do this at the top of your GitHub repo
+
+        ![Finding the PR](./images/FindPRonGitHub.png)
+
+    2. a pull request is a safe and easy way for us to merge
+    3. a pull request will also tell us whether there is a merge conflict or not
+
+        ![Create PR](./images/CreatePR.png)
+
+    4. If there is a merge conflict, it will tell us which files are affected
+
+        ![PR Merge Conflict Notification](./images/PRMergeConflict.png)
+
+4. on terminal, update your main branch
+    1. switch ack to main branch: `$ git checkout main`
+    2. pull from remote: `$ git pull`
+5. switch back to your feature branch: `$ git checkout [branch name]`
+6. merge main to your branch: `$ git merge main`
+7. fix the merge conflicts in the editor of your choice
+8. commit your changes
+    1. add your changes: `$ git add .`
+    2. commit your changes: `$ git commit -m "[message]"`
+9. push your changes to the remote repository: `$ git push -u origin [branch name]`
+10. on GitHub, PR should be good to merge, so merge on GitHub
+
+    ![Merging the PR](./images/MergePR.png)
+
 ## Extra Resources and Tidbits
+
+Time to go over some extra things that I've mentioned over the workshop that you don't need to know all too well, but 
+understanding them will make life easier for you.
+
 ### Helpful Tidbits (Git Edition)
+
+- .gitignore
+
+I mentioned this when we were first creating our GitHub repo. A .gitignore is literally a file in your project's home
+directory (directly in the project folder, not nested within further folders) that tells git which files to never 
+include in the commits. It looks somewhat like this:
+```git
+ignore-me.txt			#ignores the text file ignore-me.txt
+*.log					#ignores all files that end with .log
+some_folder/       		#ignores the folder some_folder and all of its contents
+```
+If you want git to ignore a specific file, you can list that file inside the .gitignore. If you want git to ignore a
+set of files with the suffix '.log', then you can type `*.log` in the .gitignore. If you wanted git to ignore a set of
+files that begin with the letter 'a', you can also use the asterisk to do this by typing `a*`. The asterisk is just a
+placeholder for any other set of characters. If you want git to ignore a folder and all of its contents, type the
+folder's name followed by a slash. If you want to type a comment in the .gitignore, type a hashtag and then write your
+comment.
+
+- `$ git stash`
+
+This command temporarily shelves the changes you have made to your working directory that have not been committed.
+This allows you to switch branches and work on something else. You can always come back later and unshelve these changes 
+and start working on them again.
+
+- `$ git stash apply`
+
+This command unshelves the changes you stashed with the last command.
+
+Say you were working on a branch. You haven't committed yet, but you need to switch to another brnahc. To do so, you have
+to called `$ git stash` then `$ git checkout` to get to the branch you want to go to. When you switch back to your 
+original branch, you do `$ git stash apply` to unshelve your changes and continue working on them.
+
+- `$ git diff --staged`
+
+This command prints out all the differences between your staged files and the latest commit. It is especially useful if 
+you’ve been away for a while and don’t remember what you’ve changed since your last commit.
+
+- `$ git reset --soft HEAD~1`
+
+This command tells the repo that the previous commit (second to last one made) is now the latest commit. In doing so, it 
+reverts the state of the repo to that previous commit. However, this command is very nice because it does not delete the 
+changes made since that commit. All of these changes are still in the working directory and will show up if you call 
+`$ git status`.
+
+- `$ git blame [file]`
+
+If a bug has been introduced, you can use `$ git blame` on a file to find who wrote each line, the date they wrote it, and 
+which commit they inputted this line in. With this information, you can do all sorts of detective work.
+
 ### Helpful Tidbits (Bash Edition)
+
+- `cd`
+
+`cd` means 'change directory'. This command can be used to move incrementally through folders or you can just change your
+path completely. By incrementally, I mean that you can use `cd` to go into a folder that is within the folder you are 
+currently in. An example of this is:
+```bash
+cd test-project
+```
+If you want to change paths completely, you can do:
+```bash
+cd /Home/Documents/new-folder
+```
+where each folder listed between slashes is a folder within the previous folder.
+
+- `ls`
+
+This command lists the files and folders that are in the folder you are currently in.
+
+- `ls -a`
+
+Like `ls`, this command lists files and folders for the folder you are currently in. However, this command also lists hidden
+files like ., .., and .git.
+
 ### Extra Resources
+
+- [Git Cheatsheet](https://www.git-tower.com/blog/git-cheat-sheet/)
+- [Bash Commands Cheatsheet](https://www.educative.io/blog/bash-shell-command-cheat-sheet)
+    - unfortunately some of these commands might not be useable on Windows devices
+- ACM Hack officers and mentors!! We're here to help!!
