@@ -24,7 +24,9 @@ understand git a little better, so happy hacking!
     - [More helpful workflow commands](#more-helpful-workflow-commands)
 - [Collaborating with GitHub](#collaborating-with-github)
     - [What is GitHub](#what-is-github)
+    - [The relationship between git and GitHub](#the-relationship-between-git-and-github)
     - [Setting up GitHub](#setting-up-github)
+    - [Git collaboration commands](#git-collaboration-commands)
 - [Branching](#branching)
     - [What is branching?](#what-is-branching)
     - [Why do we branch?](#why-do-we-branch)
@@ -247,10 +249,98 @@ commit as normal or continue working.
 Git is actually very useful when you want to collaborate on a project with others. How do we do it though?
 Like every multiplayer game out there, we need a server or some space on the internet in whcih we can see what other people 
 are doing in the game and interact with their progress to help us finish our game.
+
 ...Can we use google drive? Nah. Hold onto your socks, folks, we're gonna talk about collaborating using GitHub.
 
 ### What is GitHub?
+
+What is GitHub? It's a git-based version control system in the cloud. This essentially means that GitHub is a website that
+allows you to create an online repo (often called a remote repo) so that you can further save your commit history (the 
+history of snapshots you have made) and share your code among multiple people. With GitHub, it's easy to download the online 
+repo's code, create commits on your local copy of the repo, and then submit these changes to the remote repo.
+
+Let me also emphasize exceedingly emphatically that git is not the same thing as GitHub. GitHub is the cloud version of the
+repository that everyone can see and download, edit the commit history of, and then submit their changes to. Git is the version
+control system on our devices. Practically, we will be using git locally and using GitHub to receive and send code amongst our
+collaborators.
+
+### The relationship between git and GitHub
+
+GitHub and each device that submits changes to the project all have their own individual copies of the repository. The
+version on GitHub is called the 'master' version. Each copy on a personal device is called a 'local' copy. Using git, we can
+download 
+
+*Why have individual copies of the repo for GitHub and each device?*
+
+Mainly for safety reasons. If there was a shared coding space between all people like a google doc, it would be much easier for
+bugs to be introduced to the program. If one person introduces faulty code into the project files, everyone's version of the code
+stops working. This makes it very hard to debug and ensure that there is always a non-problematic version of the project to refer
+back to. On the other hand with separate copies, if one person inserts buggy code into their copy of the project files, only 
+their version of the project falls to pieces. Other people still have a working project. The person with the buggy code can now
+redownload the working version from the master copy and then everything will work again. Separate copies are just another way to
+create futher safety nets for everyone in the collaboration process.
+
 ### Setting up GitHub
+
+**Everyone on your team** has to create a [GitHub account](https://github.com/). I recommend you use the same email that you used
+when configuring git.
+
+**One person on your team** has to create a local repo and a GitHub repo and link the two repositories together so they can talk
+to one another. To do this:
+1. create a [GitHub repo](https://github.com/new)
+    1. Make sure that this repo is public
+    2. There will be checkboxes for adding a .gitignore or a README.md. Don't check them. I'll explain what they are later and if
+    you want them then, you can add them.
+2. create a repo on your personal device in the folder of your choice.
+    1. you can do this with `$ git init`
+3. create a commit in this repo
+    1. the easiest way to do this is by adding a some text in a new file
+    2. add your changes to the staging area: `$ git add .`
+    3. commit the files in the staging area to the repo: `$ git commit -m "[message]"`
+4. bind and sync the remote repo to your local repo
+    1. `$ git remote add origin [GitHub repo url]`
+    2. `$ git branch -M main`
+    3. `$ git push -u origin main`
+
+Let me elaborate more on step 4 because it's quite dense and includes a lot of new things we haven't covered. Firstly after step 1,
+GitHub will send you to a page where you can find your GitHub repo link. The page should look something like this, where the red
+arrow points to the repo link you should use for step 4.1:
+
+![GitHub Repo Link](./images/GitHubRepoLink.png)
+
+In total, step 4 takes the online repo and links it to the one you create locally on your device in step 2. With these two repos
+linked, you can now get the code in the GitHub repo onto your device and you can submit your local repository and its changes to 
+GitHub to change the state of the GitHub repository. Additionally, this step syncs the remote repo to your local one, so now the
+remote has all the commits you have made in your local repo instead of being an empty repo.
+
+**Everyone else on the team** has to get a copy of the master version of the repository onto their devices now. You can do this
+with the `$ git clone [GitHub repo url]` command. The url is the same one used in step 4.1 when the chosen one of the group linked
+their local repo to the remote.
+
+This command will essentially create a copy of the master version of the repo in whatever folder you are currently in and link
+the remote repo to this new local version. In this repo, you can download the latest eversion of the master copy, create your 
+own commits, and then share these commits with the remote repo.
+
+Easy peasy collaboration right?
+
+### Git collaboration commands
+
+I've mentioned before that you can submit the changes you made to your repo to the master version. How do we use git to do this?
+```git
+$ git push
+```
+This command essentially compares your local repo to the one on GitHub. If your repo has something that the GitHub one does not
+have, it copies your changes to the online repo so that other people can get the most updated version of the code.
+
+Incidentally, we used this git push command earlier when binding a remote repo to the local one. Now you know what it means!
+
+It's kind of useless to only be able to push code to the remote repo. What if we want to edit the code on the master version
+because it might have updates that our local version does not have? Thus, converse to `$ git push` we have the command
+```git
+$ git pull
+```
+This command compares the repo on GitHub to your local repo. If the GitHub repo has something that your local repo does not
+have, it copies these changes into your local repo, so you get the most updated version of the shared project
 
 ## Branching
 ### What is branching?
