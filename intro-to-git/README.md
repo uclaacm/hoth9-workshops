@@ -34,7 +34,9 @@ understand git a little better, so happy hacking!
     - [Pushing and pulling branches](#pushing-and-pulling-branches)
 - [Merging](#merging)
     - [Introducing merging](#introducing-merging)
+    - [What is merging in git?](#what-is-merging-in-git)
     - [Merge conflicts](#merge-conflicts)
+    - [Merge commands](#merge-commands)
     - [How do we merge?](#how-do-we-merge)
 - [Extra Resources and Tidbits](#extra-resources-and-tidbits)
     - [Helpful Tidbits (Git Edition)](#helpful-tidbits-git-edition)
@@ -165,7 +167,7 @@ The git workflow has three stages: the working directory, the staging area, and 
 - **The Working Directory**
 
 The working directory exists on your personal device. It is the folder you are working in to create your project (ie.
-the folder that has all the files that you wnat git to keep snapshots of).
+the folder that has all the files that you want git to keep snapshots of).
 
 In order to save the state of the files in the working directory, you have to introduce git to it. How?
 Type this command in your project folder:
@@ -456,7 +458,7 @@ to come back together and bring all your progress together. Alone, you only had 
 you guys have completed the game. The act of sharing your progress for everyone to see and interact with is called
 **merging**.
 
-### Merging in git
+### What is merging in git?
 
 In git, merging is when you unite two (or more, though I highly recommend only merging two) branches.
 
@@ -505,7 +507,7 @@ the the less-than signs, the equal signs, the greater-than signs, and the line o
 Say you wanted to keep the line "When a door closes, a window of opportunity opens... but we're all in a yellow submarine"
 from the image. To do so, you would have to delete lines 1, 3, 4, and 5.
 
-### How do we merge?
+### Merge commands
 
 There is an intense process to merging—I will not lie. However, follow these steps and I swear everything will be fine.
 
@@ -515,8 +517,8 @@ $ git merge [branch name]
 ```
 The branch name listed is the branch that you want to merge into your current branch. 
 
-***Please, for the sake of all that is good and non-stressful in this world, DO NOT call this command while on the main branch***
-You never wnat to touch main unless you know what you've got is impeccable. Always be on your feature branch and merge main onto
+***Please, for the sake of all that is good and non-stressful in this world, DO NOT call this command while on the main branch.***
+You never want to touch main unless you know what you've got is impeccable. Always be on your feature branch and merge main onto
 your branch. This is because when merging, you may face merge conflicts or unexpected bugs that you have to address, and we only
 want to touch main when we know what we've got is safe. By merging main onto your feature branch, you are able to address these
 problems on the feature branch, and everything is much safer this way.
@@ -527,7 +529,8 @@ $ git merge --abort
 ```
 Call this command if you have already called `$ git merge [branch name]` and then decide you want to abort the merge.
 
-Now, let's cover the **Steps to Merging**
+### How do we merge?
+
 1. on terminal, be on your feature branch
     1. check using `$ git branch`. The branch you are on will be highlighted
     2. if you are not on your branch, use `$ git checkout [branch name]` to get on your branch
@@ -574,13 +577,13 @@ directory (directly in the project folder, not nested within further folders) th
 include in the commits. It looks somewhat like this:
 ```git
 ignore-me.txt			#ignores the text file ignore-me.txt
-*.log					#ignores all files that end with .log
+*.log				#ignores all files that end with .log
 some_folder/       		#ignores the folder some_folder and all of its contents
 ```
 If you want git to ignore a specific file, you can list that file inside the .gitignore. If you want git to ignore a
 set of files with the suffix '.log', then you can type `*.log` in the .gitignore. If you wanted git to ignore a set of
 files that begin with the letter 'a', you can also use the asterisk to do this by typing `a*`. The asterisk is just a
-placeholder for any other set of characters. If you want git to ignore a folder and all of its contents, type the
+placeholder for a set of any characters. If you want git to ignore a folder and all of its contents, type the
 folder's name followed by a slash. If you want to type a comment in the .gitignore, type a hashtag and then write your
 comment.
 
@@ -594,7 +597,7 @@ and start working on them again.
 
 This command unshelves the changes you stashed with the last command.
 
-Say you were working on a branch. You haven't committed yet, but you need to switch to another brnahc. To do so, you have
+Say you were working on a branch. You haven't committed yet, but you need to switch to another branch. To do so, you have
 to called `$ git stash` then `$ git checkout` to get to the branch you want to go to. When you switch back to your 
 original branch, you do `$ git stash apply` to unshelve your changes and continue working on them.
 
@@ -644,5 +647,4 @@ files like ., .., and .git.
 
 - [Git Cheatsheet](https://www.git-tower.com/blog/git-cheat-sheet/)
 - [Bash Commands Cheatsheet](https://www.educative.io/blog/bash-shell-command-cheat-sheet)
-    - unfortunately some of these commands might not be useable on Windows devices
 - ACM Hack officers and mentors!! We're here to help!!
