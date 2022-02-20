@@ -28,11 +28,12 @@ understand git a little better, so happy hacking!
     - [Setting up GitHub](#setting-up-github)
     - [Git collaboration commands](#git-collaboration-commands)
 - [Branching](#branching)
-    - [What is branching?](#what-is-branching)
-    - [Why do we branch?](#why-do-we-branch)
+    - [Introducing branching](#introducing-branching)
+    - [What are branches in git?](#what-are-branches-in-git)
     - [How do we branch?](#how-do-we-branch)
+    - [Pushing and pulling branches](#pushing-and-pulling-branches)
 - [Merging](#merging)
-    - [What is merging?](#what-is-merging)
+    - [Introducing merging](#introducing-merging)
     - [Merge conflicts](#merge-conflicts)
     - [How do we merge?](#how-do-we-merge)
 - [Extra Resources and Tidbits](#extra-resources-and-tidbits)
@@ -343,12 +344,131 @@ This command compares the repo on GitHub to your local repo. If the GitHub repo 
 have, it copies these changes into your local repo, so you get the most updated version of the shared project
 
 ## Branching
-### What is branching?
-### Why do we branch?
+### Introducing branching
+
+Let's go back to that video game analogy—it's been working so far, so if it ain't broke, don't fix it.
+
+We're playing a multiplayer game right now, and you want to speedrun this game. You want to get as much done in as short
+an amount of time possible. How do you do this? 
+
+Luckily, you're working with a team, and different people can complete different side quests all at the same time.
+This idea of separating and working on a unique task is called **branching**.
+
+You can do the same thing with your code. In your project, you are going to have different features. Rather than have 
+everyone working on a singular feature all at one time, you can employ devision of labor and have everyone take up one
+feature each. 
+
+### What are branches in git?
+
+In git, branches can be thought about conceptually like this: two alternate lines of commits and program development
+pointing to singular commit somewhere.
+
+![Git Branch Diagram](./images/GitBranch.png)
+
+*What do those arrows saying 'main' and 'feature' mean?*
+
+Every single repo has a **main branch**. The main branch is the branch that everyone looks at to see the finished
+product or the latest working version of the project. We try to only commit to main branch (ie the line of commits
+that are pointed to by the word main) when we are absolutely, positively, 220% certain that our code is impeccable. 
+This code is not in its developmental stages. It's got a 100% chance of working, and we want this code exactly as it
+is in our final product.
+
+You can add **feature branches** to your repo in order to develop 'features' of your program. Branches are isolated
+development spaces where you can track the evolution of the code that you want to add to the final product but is
+still in the works.
+
+For example, say you're building a version of Instagram. The main branch would hold the final product that you're 
+adding to as you create and perfect more features. The feature branches are where you work on each of those features
+individually. You might have a branch for the messaging functionality of instagram, one for the creating posts 
+feature, one for creating comments, and so on. Branches allow you to track the progress you are making when you aren't
+ready to add what you have to the final product. 
+
 ### How do we branch?
 
+To lists all of the branches that you have visited in your local repository, type:
+```git
+$ git branch
+```
+Git is also nice enough to highlight the branch that you are on in this list.
+
+If you would liek to list all branches in the remote repository, ie all the branches that others have made and pushed
+to the remote, type:
+```git
+$ git branch -r
+```
+
+If you want to create a new brach, you can use:
+```git
+$ git branch [branch name]
+```
+This command creates a new branch in your local repo that has the branch name that you list.
+
+These above three commands are useful when you want to create new branches or see what branches already exist, but
+they don't allow you to switch onto a branch and work in that isolated development evironment. If you start committing,
+you'll still be committing to that main line of commits in the main branch.
+
+To get onto another branch, use:
+```git
+$ git checkout [branch name]
+```
+This command switches you onto the branch you name. If you type this command and then commit, you will be committing to
+the alternate line of commits on the branch. Nothing you change will affect main (the main branch).
+
+A helpful shortcut command is:
+```git
+$ git checkout -b [branch name]
+```
+This command squashes two commands into one: `$ git branch [branch name]` and `$ git checkout [branch name]`. In 
+essence, it creates a new branch with the name that you passed into the command and then switches you onto that branch.
+
+For newer versions of git, there's the `$ git switch` command.
+
+To switch onto another branch, use:
+```git
+$ git switch [branch name]
+```
+
+If you want to create a new branch and switch to that branch, type:
+```git
+$ git switch -c [branch name]
+```
+And yes, this command is very similar to `$ git checkout`. It's up to you regarding which command you'd like to use.
+
+### Pushing and pulling branches
+
+You can also push and pull branches between the remote repo and your local copy to work with collaborators on your
+branch.
+
+To push branches:
+```git
+$ git push -u origin [branch name]
+```
+Do you remember this command from when we were initially linking the remote repo to the local repo? Specifically, 
+the command used was `$ git push origin main`, which means that we were creating a main branch on our remote repo
+and then taking our main branch and pushing the commits we had there to the remote repo.
+
+Note: This command will push the branch you are currently on to the remote repo. Additionally, the branch name you
+list in this command will be the name of the branch that will be created in the GitHub repo. I'd use the same branch
+name in the remote repo as you have in your local repo just to avoid confusion.
+
+Pulling branches from remote is simple if you already have a local version of the branch. You simply do a `$ git pull`
+and everything from the remote branch is downloaded to your local local branch.
+
+If you do not have a version of the remote branch on your local repo, it's a multi-step process.
+1. find a list of all remote branches with `$ git branch -r`
+    1. all remote branches are listed in the format: `origin/[branch name]`
+2. when you find the branch you are looking for among the remote branches, type `$ git checkout [branch name]`
+    1. in this command when typing the branch name, ignore the 'origin/' part of the name
+3. now you've got the remote branch on your local repo so you can `$ git pull` as normal.
+
 ## Merging
-### What is merging?
+### Introducing merging
+
+In our video game analogy, you and your teammates went off to do all the side quests individually. Now, you guys have
+to come back together and bring all your progress together. Alone, you only had part of the game finished. Together,
+you guys have completed the game. The act of sharing your progress for everyone to see and interact with is called
+**merging**.
+
 ### Merge conflicts
 ### How do we merge?
 
