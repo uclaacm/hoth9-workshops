@@ -78,7 +78,7 @@ The same thing is gonna happen to your code. You can definitely yolo it and not 
 git and maybe things will work out. However, I guarantee that the larger your project is and the more intense coding 
 becomes, the higher chance that something will be messed up at some point. Then, you'll have a minor aneurysm trying 
 to figure out what went wrong. You might have to replace your ctrl-z buttons and the world's on fire as your brain 
-shuts down as you try to decipher 150 lines of error messgaes that weren't there 15 minutes ago.
+shuts down as you try to decipher 150 lines of error messages that weren't there 15 minutes ago.
 
 *TL;DR: please use git. I'm not trying to make your life harder! I'm honestly trying to make it easier, and though 
 git might be a little difficult to begin learning, I swear that the benefits outweigh the drawbacks.*
@@ -232,13 +232,13 @@ being progressively older. It essentially gives a text version of this commit hi
 
 ![Snapshot History Diagram](./images/CommitHistory.png)
 
-For each snapshot in the repo, `$ git log` will list who commited, when they commited, and the commit message. This is why 
+For each snapshot in the repo, `$ git log` will list who committed, when they committed, and the commit message. This is why 
 commit messages are so important to include. With commit messages, people know what a commit does and they can easily track 
 how a program evolved.
 
 - `$ git restore [file(s)]`
 
-This command undoes the changes you applied to your working direcory until it matches the stat it was in when you last 
+This command undoes the changes you applied to your working direcory until it matches the state it was in when you last 
 committed. It essentially allows you to start programming from your last save point.
 
 - `$ git restore --staged [file(s)/folder]`
@@ -250,7 +250,7 @@ commit as normal or continue working.
 ## Collaborating with GitHub
 
 Git is actually very useful when you want to collaborate on a project with others. How do we do it though?
-Like every multiplayer game out there, we need a server or some space on the internet in whcih we can see what other people 
+Like every multiplayer game out there, we need a server or some space on the internet in which we can see what other people 
 are doing in the game and interact with their progress to help us finish our game.
 
 ...Can we use google drive? Nah. Hold onto your socks, folks, we're gonna talk about collaborating using GitHub.
@@ -277,8 +277,8 @@ download
 
 Mainly for safety reasons. If there was a shared coding space between all people like a google doc, it would be much easier for
 bugs to be introduced to the program. If one person introduces faulty code into the project files, everyone's version of the code
-stops working. This makes it very hard to debug and ensure that there is always a non-problematic version of the project to refer
-back to. On the other hand with separate copies, if one person inserts buggy code into their copy of the project files, only 
+stops working. This makes it very hard to debug and difficult to ensure that there is always a non-problematic version of the project 
+to refer back to. On the other hand with separate copies, if one person inserts buggy code into their copy of the project files, only 
 their version of the project falls to pieces. Other people still have a working project. The person with the buggy code can now
 redownload the working version from the master copy and then everything will work again. Separate copies are just another way to
 create futher safety nets for everyone in the collaboration process.
@@ -338,7 +338,7 @@ have, it copies your changes to the online repo so that other people can get the
 Incidentally, we used this git push command earlier when binding a remote repo to the local one. Now you know what it means!
 
 It's kind of useless to only be able to push code to the remote repo. What if we want to edit the code on the master version
-because it might have updates that our local version does not have? Thus, converse to `$ git push` we have the command
+because it might have updates that our local version does not have? Thus, converse to `$ git push`, we have the command
 ```git
 $ git pull
 ```
@@ -348,7 +348,7 @@ have, it copies these changes into your local repo, so you get the most updated 
 ## Branching
 ### Introducing branching
 
-Let's go back to that video game analogy—it's been working so far, so if it ain't broke, don't fix it.
+Let's go back to that video game analogy—it's been working so far, and if it ain't broke, don't fix it.
 
 We're playing a multiplayer game right now, and you want to speedrun this game. You want to get as much done in as short
 an amount of time possible. How do you do this? 
@@ -405,10 +405,12 @@ they don't allow you to switch onto a branch and work in that isolated developme
 you'll still be committing to that main line of commits in the main branch.
 
 - `$ git checkout [branch name]`
+
 This command switches you onto the branch you name. If you type this command and then commit, you will be committing to
 the alternate line of commits on the branch. Nothing you change will affect main (the main branch).
 
 - `$ git checkout -b [branch name]`
+
 This command is a helpful shortcut in that it squashes two commands into one: `$ git branch [branch name]` and 
 `$ git checkout [branch name]`. In essence, it creates a new branch with the name that you passed into the command and 
 then switches you onto that branch.
@@ -477,7 +479,7 @@ branch. Now your newest commit on main looks like the last commit on main plus y
 Theoretically, merging works just fine... except for when it doesn't.
 
 Let's imagine that in our video game analogy, two people ended up doing the same quest. Now you can't just automatically
-smash everyone's progress together because two people's actions clasha nd mgiht have ended up with differnet results.
+smash everyone's progress together because two people's actions clasha nd mgiht have ended up with different results.
 One person's progress overwrites another person's contribution and that is very much not great. This is in essence a
 **merge conflict**. 
 
