@@ -14,8 +14,12 @@ const words = {
     adverb: ['quickly', 'faithfully', 'solemnly']
 };
 
+// tells Express to expect data in json format
 app.use(express.json());
 
+app.get('/test', (req, res) => {
+    res.status(200).send('Working!');
+});
 
 app.get('/words', (req, res) => {
     res.status(200).send(words);
