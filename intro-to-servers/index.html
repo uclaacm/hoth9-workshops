@@ -1,0 +1,17 @@
+<!-- This is a quick and dirty example of displaying information from
+a request to the server on the frontend. Don't actually do this in
+your projects and please watch the API and JavaScript workshops to
+learn how to do this more legitly. -->
+
+<head>
+    <title>Mad Lib Test</title>
+</head>
+
+<body>
+    <h1 id='text'>Hello!</h1>
+    <script>
+        fetch("http://localhost:8000/random/adverb")
+            .then(response => response.text())
+            .then(data => document.getElementById('text').innerHTML = data);
+    </script>
+</body>

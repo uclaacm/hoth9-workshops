@@ -125,14 +125,30 @@ npm (node package manager) will ask you for a bunch of fields like version and a
 ```
 npm install express
 npm install nodemon
+npm install cors
 ```
-Express is a library that allows us to program our server in JavaScript. Nodemon is a library that automatically restarts the server each time we save our code.
+
+Alternatively, you can do:
+
+```
+npm install express nodemon cors
+```
+
+Express is a library that allows us to program our server in JavaScript. Nodemon is a library that automatically restarts the server each time we save our code. Cors is a library that lets us access our API from other clients or websites.
 
 Now, in your project folder, create a new file called server.js and write the following code:
 ```js
 const express = require('express')
+const cors = require('cors');
 const app = express()
 const PORT = 8000;
+
+
+// tells Express to expect data in json format
+app.use(express.json());
+
+// this is needed to access your API from the frontend
+app.use(cors());
 
 app.get('/test', (req, res) => {
     res.status(200).send('Working!');
@@ -167,9 +183,6 @@ const words = {
     adjective: ['lovely', 'smelly', 'acceptable'],
     adverb: ['quickly', 'faithfully', 'solemnly']
 };
-
-// tells Express to expect data in json format
-app.use(express.json());
 
 app.get('/words', (req, res) => {
     res.status(200).send(words);
