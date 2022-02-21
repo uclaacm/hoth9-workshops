@@ -17,6 +17,7 @@
 - [HTTP Responses](#http-responses)
 - [Setting up your environment](#setting-up-your-environment)
 - [Getting started with Express](#getting-started-with-express)
+- [Mad Libs server demo](#mad-libs-server-demo)
 
 NOTE: there is a lot to cover in this workshop so if you are not familiar with JavaScript or web development, I highly recommend watching the video recording of the workshop.
 
@@ -158,7 +159,7 @@ You should also be able to visit http://localhost:8000/test and see this in your
 Working!
 ```
 
-### Adding functionality
+## Mad Libs server demo
 ```js
 const words = {
     noun: ['apple', 'bicycle', 'mittens'],
