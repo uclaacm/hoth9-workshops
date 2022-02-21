@@ -14,25 +14,59 @@ Hello! Welcome to this introduction to web development using React.js workshop! 
 
 ## What we'll be learning today
 - [Introducing React] (#introducing-react)
-    - [What is React?] ()
-    - [Why do we use React?] ()
-    - [JSX] ()
-    - [Setting up your React App] ()
-    - [Set up Demo] ()
+    - [What is React?] (#what-is-react)
+    - [Why do we use React?] (#why-do-we-use-react)
+    - [JSX] (#jsx)
+    - [Setting up your React App] (#setting-up-your-react-app)
+    - [Set up demo] (#set-up-demo)
 - [Components] ()
     - [What is a component?] ()
     - [Functional components] ()
-    - [Import and Export] ()
+    - [Import and export] ()
     - [Rendering] ()
-    - [Component Demo] ()
+    - [Component demo] ()
 - [Props] ()
     - [What is a prop?] ()
     - [Using props] ()
-    - [Props Demo] ()
+    - [Props demo] ()
 - [State] ()
     - [What is state?] ()
-    - [State Demo] ()
-- [Helpful Resources] ()
+    - [State demo] ()
+- [Other Resources] ()
     - [React.js website] ()
 
 ## Introducing React
+### What is React?
+
+### Why do we use React?
+
+### JSX
+
+### Setting up your React App
+
+### Set up Demo
+
+## Components
+### What is a component?
+
+### Functional components
+
+### Import and export
+
+### Rendering
+
+### Component Demo
+
+## Props
+### What is a prop?
+
+### Using props
+
+### Props demp
+
+## State
+### What is state?
+
+### State Demo
+
+## Other Resources
