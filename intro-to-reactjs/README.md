@@ -13,27 +13,29 @@ Hello! Welcome to this introduction to web development using React.js workshop! 
 - Workshop Recording (coming soon)
 
 ## What we'll be learning today
-- [Introducing React] (#introducing-react)
-    - [What is React?] (#what-is-react)
-    - [Why do we use React?] (#why-do-we-use-react)
-    - [JSX] (#jsx)
-    - [Setting up your React App] (#setting-up-your-react-app)
-    - [Set up demo] (#set-up-demo)
-- [Components] ()
-    - [What is a component?] ()
-    - [Functional components] ()
-    - [Import and export] ()
-    - [Rendering] ()
-    - [Component demo] ()
-- [Props] ()
-    - [What is a prop?] ()
-    - [Using props] ()
-    - [Props demo] ()
-- [State] ()
-    - [What is state?] ()
-    - [State demo] ()
-- [Other Resources] ()
-    - [React.js website] ()
+- [Introducing React](#introducing-react)
+    - [What is React?](#what-is-react)
+    - [Why do we use React?](#why-do-we-use-react)
+    - [JSX](#jsx)
+    - [Setting up your React App](#setting-up-your-react-app)
+    - [Set up demo](#set-up-demo)
+- [Components](#components)
+    - [What is a component?](#what-is-a-component)
+    - [Functional components](#functional-components)
+    - [Import and export](#import-and-export)
+    - [Rendering](#rendering)
+    - [Component demo](#component-demo)
+- [Props](#props)
+    - [What is a prop?](#what-is-a-prop)
+    - [Using props](#using-props)
+    - [Props demo](#props-demo)
+- [State](#state)
+    - [What is state?](#what-is-state)
+    - [useState()](#usestate)
+    - [State demo](#state-demo)
+- [Other Resources](#other-resources)
+    - [Node.js website](https://nodejs.org/en/download/)
+    - [React.js website](https://reactjs.org/)
 
 ## Introducing React
 ### What is React?
@@ -66,6 +68,8 @@ Hello! Welcome to this introduction to web development using React.js workshop! 
 
 ## State
 ### What is state?
+
+### useState()
 
 ### State Demo
 
