@@ -8,8 +8,8 @@
 
 ## Resources
 
-- [Slides](https://docs.google.com/presentation/d/13rfkqxUmd0yK7uWBy7TK_yO93GjbwJgl07aVwsnKlbM/edit?usp=sharing)
-- [Workshop Recording](https://www.youtube.com/watch?v=g8YQ9iSOvwo)
+- [Slides](https://docs.google.com/presentation/d/113s6r2s_LHSXV0bN1K-MIkMxi8UagFDMynRB5i78BoA/edit?usp=sharing)
+- [Workshop Recording](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 ## What we'll be learning today
 
