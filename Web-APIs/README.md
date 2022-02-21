@@ -1,1 +1,1 @@
-# Hack on the Hill 9 - Intro to Version Control: Git
+# Hack on the Hill 9 - Intro to Web APIs
