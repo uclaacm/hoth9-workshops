@@ -1,12 +1,4 @@
-const express = require('express')
-const app = express()
-const PORT = 8000;
-
-// app.METHOD(PATH, HANDLER)
-// METHOD is the name of an HTTP request (e.g. get)
-// PATH is an endpoint on the server and what comes after the URL in the browser
-// HANDLER is a JavaScript function that returns an HTTP response
-
+// some words for testing
 const words = {
     noun: ['apple', 'bicycle', 'mittens'],
     verb: ['medidate', 'boogie', 'explode'],
@@ -14,8 +6,23 @@ const words = {
     adverb: ['quickly', 'faithfully', 'solemnly']
 };
 
+const express = require('express')
+const cors = require('cors');
+const app = express()
+const PORT = 8000;
+
+
 // tells Express to expect data in json format
 app.use(express.json());
+
+// this is needed to access your API from the frontend
+app.use(cors());
+
+
+// app.METHOD(PATH, HANDLER)
+// METHOD is the name of an HTTP request (e.g. get)
+// PATH is an endpoint on the server and what comes after the URL in the browser
+// HANDLER is a JavaScript function that returns an HTTP response
 
 app.get('/test', (req, res) => {
     res.status(200).send('Working!');
