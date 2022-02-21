@@ -124,14 +124,8 @@ npm init
 npm (node package manager) will ask you for a bunch of fields like version and author but all of them are optional so you can just spam enter if you want. Once you finish, type the next commands to install Express and Nodemon.
 ```
 npm install express
-npm install nodemon
 npm install cors
-```
-
-Alternatively, you can do:
-
-```
-npm install express nodemon cors
+npm install -g nodemon
 ```
 
 Express is a library that allows us to program our server in JavaScript. Nodemon is a library that automatically restarts the server each time we save our code. Cors is a library that lets us access our API from other clients or websites.
