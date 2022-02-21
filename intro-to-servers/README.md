@@ -1,4 +1,4 @@
-# Hack Sprint Session 5: State and Bindings
+# HOTH 9: Intro to Backend: Servers
 
 **Date**: February 26, 2022
 
