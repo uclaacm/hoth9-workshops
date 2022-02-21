@@ -7,7 +7,7 @@ The following workshops are available this year!
 - [Web Development: React]()
 - [Mobile Development: React Native]()
 - [Web API's]()
-- [Intro to Backend: Servers]()
+- [Intro to Backend: Servers](https://github.com/uclaacm/hoth9-workshops/tree/main/intro-to-servers)
 - [Intro to Backend: Databases]()
 - [Intro to Version Control: Git](https://github.com/uclaacm/hoth9-workshops/tree/main/intro-to-git) 
 - [Intro to Game Development: Unity]()
