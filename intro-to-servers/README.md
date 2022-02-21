@@ -1,4 +1,4 @@
-# HOTH 9: Intro to Backend: Servers
+Hack on the Hill 9 - Intro to Backend: Servers
 
 **Date**: February 26, 2022
 
