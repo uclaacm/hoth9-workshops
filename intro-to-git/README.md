@@ -11,7 +11,7 @@ understand git a little better, so happy hacking!
 
 ## Resources
 - [Slides](https://docs.google.com/presentation/d/11Gb0WyIzhGyTfzxS0bg_IhUuvTgwYifyVpzmMK8aOmg/edit#slide=id.g113b2df1613_0_4)
-- Workshop Recording (coming soon)
+- [Workshop Recording](https://youtu.be/YWEOSz7Lo8U)
 
 ## What we'll be learning today
 - [Introducing git](#introducing-git)
