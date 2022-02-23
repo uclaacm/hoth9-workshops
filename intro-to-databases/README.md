@@ -174,10 +174,10 @@ Now, we have a react state component called **users** that holds the user that w
 And that's all! This walkthrough created a data value, stored it in the database, retrieved that data value, and displayed the data value in the app. 
 
 ## Further Resources
--[Adding a Value API](https://firebase.google.com/docs/firestore/manage-data/add-data)
+[Adding a Value API](https://firebase.google.com/docs/firestore/manage-data/add-data)
 
--[Retrieving a Value API](https://firebase.google.com/docs/firestore/query-data/get-data)
+[Retrieving a Value API](https://firebase.google.com/docs/firestore/query-data/get-data)
 
--[Full API](https://firebase.google.com/docs/firestore)
+[Full API](https://firebase.google.com/docs/firestore)
 
 ## As always, Happy Hacking!
