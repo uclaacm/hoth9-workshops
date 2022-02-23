@@ -175,7 +175,9 @@ And that's all! This walkthrough created a data value, stored it in the database
 
 ## Further Resources
 -[Adding a Value API](https://firebase.google.com/docs/firestore/manage-data/add-data)
+
 -[Retrieving a Value API](https://firebase.google.com/docs/firestore/query-data/get-data)
+
 -[Full API](https://firebase.google.com/docs/firestore)
 
 ## As always, Happy Hacking!
