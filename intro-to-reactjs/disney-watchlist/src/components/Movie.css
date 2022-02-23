@@ -1,0 +1,16 @@
+#cover{
+    border-radius: 5px;
+    width: 300px;
+    height: 175px;
+}
+
+#watched {
+    width: 25px;
+    height: 25px;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: 7fr 1fr;
+    align-items: center;
+}
