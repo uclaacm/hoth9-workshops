@@ -70,7 +70,6 @@ const element = <img src={url}/>;
 
 ### Rendering
 
-
 ### Setting up your React App
 
 ### Set up Demo
@@ -81,6 +80,8 @@ const element = <img src={url}/>;
 ### Functional components
 
 ### Import and export
+
+### Rendering
 
 ### Component Demo
 
