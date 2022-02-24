@@ -4,7 +4,7 @@ Hack on the Hill (HOTH) is a 12-hour, beginner-friendly hackathon hosted by ACM 
 The following workshops are available this year!
 - [Intro to Hackathons]()
 - [HTML/CSS/Javascript]()
-- [Web Development: React]()
+- [Web Development: React](https://github.com/uclaacm/hoth9-workshops/tree/main/intro-to-reactjs)
 - [Mobile Development: React Native]()
 - [Web API's]()
 - [Intro to Backend: Servers](https://github.com/uclaacm/hoth9-workshops/tree/main/intro-to-servers)
