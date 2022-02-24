@@ -263,7 +263,7 @@ Now we can use this concept of state to add a checkbox image to our Movie compon
 
 ![State Demo Idea](./images/state-demo-idea.png)
 
-First, I added the two images of the checkboxes into a folder called "images" in "src" for organization and imported them into `Movie.js` as `watchedImg` and `notWatchedImg`. Just for looks, I am going to add this image to the right of the movie title in our component, and add some CSS so that it looks good. Next, we can add state to our component like we talked about and write a function `changeWatchedState` that uses the `setWatched` function to invert the `watched` state. Using the `onClick` attribute that is built in to most HTML elements, set the attribute to the function *name*, as it expects a function and not a function call. You could also skip writing the extra function altogether and just use an anonymous function for the attribute as so: `onClick={() => setWatched(!watched)}`. The entire component now looks like this:
+First, I added the two images of the checkboxes into a folder called "images" in "src" for organization and imported them into `Movie.js` as `watchedImg` and `notWatchedImg`. Just for looks, I am going to add this image to the right of the movie title in our component, and add some CSS so that it looks good. Next, we can add state to our component like we talked about and write a function `changeWatchedState` that uses the `setWatched` function to invert the `watched` state. Using the `onClick` attribute that is built in to most HTML elements, set the attribute to the function *name*, as it expects a function and not a function call. You could also skip writing the extra function altogether and just use an anonymous function for the attribute as so: `onClick={() => setWatched(!watched)}`. The entire `Movie.js` file now looks like this:
 ```
 import React, { useState } from 'react';
 import './Movie.css';
@@ -306,3 +306,4 @@ Now, when we click the checkbox next to any movie, the state and image change as
 ## Other Resources
 - [Node.js website](https://nodejs.org/en/download/)
 - [React.js website](https://reactjs.org/)
+- ACM Hack officers and mentors!! We're here to help!!
