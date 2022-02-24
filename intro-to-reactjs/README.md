@@ -45,24 +45,24 @@ One of the main reasons that React is so popular is because of its ability to cr
 
 ### JSX
 In order to use React, you're going to need to learn some new syntax (sorry!). Luckily, this new syntax, JSX, is simply an add-on to Javascript, so some of it may look familiar. JSX **combines HTML and Javscript** to give us the ability to describe what UI components should look like. An example of this is the following line of code:
-```
+```JavaScript
 const message = <h1>Welcome to HOTH!</h1>;
 ```
 This line of code, which sets a variable message to what looks like an HTML tag, is completely normal JSX syntax. Furthermore, in JSX, we can **insert any valid Javascript expression using curly braces**. An example of this would be the following:
 
-```
+```JavaScript
 const year = 9;
 const message = <h1>Welcome to HOTH{year}!</h1>
 ```
 This would display "Welcome to HOTH9!" We can also do this with functions, for example:
-```
+```JavaScript
 const nameFunction = () => {
    return 'Hack';
 };
 const element = <h1>I love {nameFunction()}!</h1>;
 ```
 This would display "I love Hack!" If we need to insert a JavaScript expression as an attribute, we can also do so with curly braces, like this:
-```
+```JavaScript
 const url = 'https://pbs.twimg.com/media/DkFgGKXXcAAbOn8.jpg';
 const element = <img src={url}/>;
 ```
@@ -103,7 +103,7 @@ We can further break down our account information component into a profile pictu
 
 ### Functional components
 We are going to use functional components to implement our components. These are basically **JavaScript functions that represent a component**! Here is an example of a Movie functional component that has an image, a title, and a description:
-```
+```JavaScript
 function Movie() {
   return(
       <div>
@@ -131,7 +131,7 @@ I've added some Marvel movies because I've decided that I'm going to binge-watch
 ![Our Disney Plus Watchlist](./images/our-disney-plus-watchlist.png)
 
 What I first notice is that each and every movie has the same parts: an image, a title, and a description, which means that I can create a Movie component, which is just like the one I created earlier!
-```
+```JavaScript
 function Movie() {
    return(
        <div>
@@ -151,7 +151,7 @@ Now we have successfully created a Movie component!
 ## Props
 ### What is a prop?
 As good as *Avengers* is, I really don't want my watchlist to only display the one movie, and I also don't want to have to create a new component for each unique movie. The solution to this? Props, which stands for **properties**! In order for our components to **display different information**, we can pass in the props object to our (function)al components, similar to how we pass in arguments to functions and expect them to return different values accordingly. An example of what the props object may look like after passing in properties is:
-```
+```JavaScript
 props: {
    image: 'image source here',
    title: 'movie title here',
@@ -161,7 +161,7 @@ props: {
 
 ### Using props
 In order to actually use props, you have to **pass information into the component as self-defined attributes**. For example, if I want to use the pass information into my Movie component, I would have the following in `App.js`:
-```
+```JavaScript
 function App() {
  return(
    <div>
@@ -172,14 +172,14 @@ function App() {
 }
 ```
 For the first Movie component, the resulting props object would look like:
-```
+```JavaScript
 props: {
    title: 'Iron Man',
    description: 'blah'
 }
 ```
 Then, you would use props inside of the component itself by **passing in 'props' to the functional component** and **accessing the property of props using the dot operator**. For example, we could do this to display the title and description passed in:
-```
+```JavaScript
 function Movie(props) {
    return(
        <div>
@@ -192,7 +192,7 @@ function Movie(props) {
 
 ### Props demo
 Let's add props to our watchlist so that we can see different movies. In `Movie.js`, our functional component would look like:
-```
+```JavaScript
 function Movie(props) {
    return(
        <div>
@@ -208,7 +208,7 @@ Then, we are going to create the Movie components that we want on our webpage in
 Then, I am going to use the `array.map()` JavaScript function, which creates a new array with the results of calling a specific function on every element in the array it is called on. For example, if I were to create an array `let arr = [1, 2, 3, 4, 5];` and I called the map function by saying `let result = arr.map(x => x * 2);`, the map function would take every element in `arr` and call the function passed into map on the element and add it to the resulting array. `result` here would be the array [2, 4, 6, 8, 10]. 
 
 So, let's add in our movie array into `App.js`. Here is a snippet of it with the first three movies:
-```
+```JavaScript
 const movies = [
   {
     image: "https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/BFD0DE060C96543FB5195A01A8AF2000B68C8E643DAE26E0563694424602E2E8/scale?width=1200&aspectRatio=1.78&format=jpeg",
@@ -227,7 +227,7 @@ const movies = [
   }, ...
 ```
 As you can see, each object has an image property with the image source, a title property with the movie title, and a description property with the movie description. We can now use our map function to create a Movie component for each movie in the array and put them onto our webpage:
-```
+```JavaScript
 {
     movies.map((movie, i) => {
         return <Movie
@@ -249,11 +249,11 @@ State allows us to **keep track of properties of components on the screen that m
 
 ### useState()
 To use the concept of state, we need to use the useState() function, which we can import with the following line at the top of the file:
-```
+```JavaScript
 import React, { useState } from 'react';
 ```
 useState is a function that **takes in an initial state, and returns a two-element array**(). The first element contains the **state data**, while the second element is a **function that can be used to update the state**. It is common to deconstruct the return value of useState like so in order to use the state data and function later:
-```
+```JavaScript
 const [ watched, setWatched ] = useState(false);
 ```
 In this example, useState() takes in an initial state of `false`, which also means that the state data, which is set to the variable `watched`, has a value of `false` at the moment. We can update the state by using the function `setWatched`, which takes in the value of what we want to update the state to. For example, `setWatched(true)` would set `watched` to `true`.
@@ -264,7 +264,7 @@ Now we can use this concept of state to add a checkbox image to our Movie compon
 ![State Demo Idea](./images/state-demo-idea.png)
 
 First, I added the two images of the checkboxes into a folder called "images" in "src" for organization and imported them into `Movie.js` as `watchedImg` and `notWatchedImg`. Just for looks, I am going to add this image to the right of the movie title in our component, and add some CSS so that it looks good. Next, we can add state to our component like we talked about and write a function `changeWatchedState` that uses the `setWatched` function to invert the `watched` state. Using the `onClick` attribute that is built in to most HTML elements, set the attribute to the function *name*, as it expects a function and not a function call. You could also skip writing the extra function altogether and just use an anonymous function for the attribute as so: `onClick={() => setWatched(!watched)}`. The entire `Movie.js` file now looks like this:
-```
+```JavaScript
 import React, { useState } from 'react';
 import './Movie.css';
 import notWatchedImg from '../images/not-watched.png';
@@ -296,7 +296,7 @@ If I `console.log(watched)` while clicking the image now, we can see that the st
 To do this in one line, we can use something called a ternary or conditional operator. This expression contains a condition followed by a question mark followed by an expression to execute if true followed by a colon followed by an expression to execute if false. This probably sounds super odd if you have never heard of it, so let's look at an example: `(3 == 2) ? "hi" : "bye"`. Here, the condition is (3 == 2), the expression to execute if the condition is true is "hi" and the expression to execute if false is "bye". Because 3 is not equal to 2, the second expression, "bye", will execute. Conversely, if we change the condition and have `(2 == 2) ? "hi" : "bye"` instead, "hi" will execute because the condition is true.
 
 We can do this to choose our image, where our condition is `watched`! If `watched` is true, we want to display `watchedImg`. If `watched` is false, we want to display `notWatchedImg`. Note that this is basically an if-else statement but with less code and in one line. Our image element will now look like:
-```
+```JavaScript
 <img id="watched" src={watched ? watchedImg : notWatchedImg} onClick={changeWatchedState}/>
 ```
 Now, when we click the checkbox next to any movie, the state and image change as expected. Yay! Here is our finished product with *Captain America: The First Avenger* and *Iron Man* marked as watched:
