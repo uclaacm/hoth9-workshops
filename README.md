@@ -2,7 +2,7 @@
 Hack on the Hill (HOTH) is a 12-hour, beginner-friendly hackathon hosted by ACM Hack @ UCLA. This event is designed to give beginners a taste of what a hackathon looks and feels like. During HOTH, there are workshops and mentors available to provide technical support and help beginners get started on their projects.
 
 The following workshops are available this year!
-- [Intro to Hackathons](https://www.youtube.com/watch?v=-rg6fJKJ77c)
+- [Intro to Hackathons](https://www.youtube.com/watch?v=GskV5qMOpkE&feature=emb_title)
 - [HTML/CSS/Javascript](https://github.com/uclaacm/hoth8-intro-to-html-css-js/blob/main/README.md)
 - [Web Development: React](https://github.com/uclaacm/hoth9-workshops/tree/main/intro-to-reactjs)
 - [Mobile Development: React Native](https://github.com/uclaacm/hoth9-workshops/tree/main/intro-to-react-native)
