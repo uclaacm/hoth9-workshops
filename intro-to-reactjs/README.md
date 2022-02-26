@@ -10,7 +10,7 @@ Hello! Welcome to this introduction to web development using React.js workshop! 
 
 ## Resources
 - [Slides](https://docs.google.com/presentation/d/1Q6-zbYOSTcvS5uN2GZHnxcpBYevpkj2HTGZImfVUEPc/edit?usp=sharing)
-- Workshop Recording (coming soon)
+- [Workshop Recording](https://www.youtube.com/watch?v=4YZ0KZfCcb8&list=PLPO7_kXilXFbjHembKB9UdcMyFkc_1Q06&index=6)
 
 ## What we'll be learning today
 - [Introducing React](#introducing-react)
