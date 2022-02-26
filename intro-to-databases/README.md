@@ -8,7 +8,7 @@ Welcome to the HOTH9 databases workshop!
 
 ## Resources
 - [Slides](https://docs.google.com/presentation/d/1hDHHENCtzvLnjwS8mYuapRBkFIEbIU_g7SKLQwU6Vnc/edit?usp=sharing)
-- [Recording]()
+- [Recording](https://www.youtube.com/watch?v=1qTyhlzLT-4)
 
 ## Topics Covered
 - [What Databases Are](#what-databases-are)
