@@ -10,7 +10,7 @@ Hello and welcome to our Intro to React Native workshop README! We'll be coverin
 
 ## Resources
 - [Slides](https://docs.google.com/presentation/d/1hPfBtJzcgahXPLuJlQ6y0HcmpqrflBbZPpmL5e1vTQE/edit?usp=sharing)
-- Workshop Recording (coming soon)
+- [Workshop Recording](https://youtu.be/TYvmyMJc3PQ)
 
 ## What we'll be learning today
 - [Hack on the Hill 9 - Intro to React Native](#hack-on-the-hill-9---intro-to-react-native)
