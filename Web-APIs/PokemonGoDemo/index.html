@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Google Map</title>
+    
+  
+  </head>
+  <body>
+    <div id = "map"></div>
+    <style>
+      #map{
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+	<script>
+        async function getPokemonImage(){
+            let pokemonIndex = Math.floor(150 *Math.random())+1;
+            console.log(pokemonIndex);
+
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonIndex}`);
+            const pokemon = await response.json();
+
+            console.log(pokemon.sprites.front_default);
+            return pokemon.sprites.front_default;
+
+        }
+        getPokemonImage();
+
+    </script>
+    <script>
+        async function initMap(){
+            //creating our map
+            var map = new google.maps.Map(document.getElementById('map'),{
+                zoom: 3,
+                center: {lat : 34.0635 , lng: -118.4455}
+            })
+
+            //adding a marker
+            var marker = new google.maps.Marker({
+                position: {lat : 34.0635 , lng: -118.4455},
+                map: map
+            });
+
+            for (var i = 0; i<100; i++) {
+                PokemonPicture =  await getPokemonImage();
+                console.log(PokemonPicture);
+                const marker = new google.maps.Marker({
+                map: map,
+                position: {lat: 33.8 + Math.floor(Math.random()*1200)/100,lng: -118.4 + Math.floor(Math.random()*3600)/100},
+                icon: {
+                    url: PokemonPicture,
+                    scaledSize: {
+                    height: 75,
+                    width: 75
+                    }
+                }
+                });
+                // When you click on the marker, you'll go to the Facebook link of the meme.
+                marker.addListener('click', () => {
+                //
+                });
+            }
+        }
+
+    </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=initMap&libraries=&v=weekly"
+    ></script>
+  </body>
+</html>
